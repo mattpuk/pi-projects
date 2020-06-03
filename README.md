@@ -19,7 +19,8 @@ t086 - temperature, Fahrenheit
 r000 - rainfall(1 hour), 0.01 inches
 p000 - rainfall(24 hours), 0.01 inches
 h53 -  humidity as percentage
-b10020 - atmosphere,0.1 hpa```
+b10020 - atmosphere,0.1 hpa
+```
   
   
  
