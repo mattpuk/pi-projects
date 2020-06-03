@@ -9,17 +9,17 @@ that does Serial comms between a RaspberryPi 3 and the DFRobot Anenometer/Weathe
  
 Taken from the DFRobot Arduino how-to:
 
-### It outputs 37 bytes per second, including the end CR/LF. Data Parser:
+#### It outputs 37 bytes per second, including the end CR/LF. Data Parser:
  
->c000s000g000t086r000p000h53b10020
->c000 - air direction, degree
->s000 - air speed(1 minute), 0.1 miles per hour
->g000 - air speed(5 minutes), 0.1 miles per hour
->t086 - temperature, Fahrenheit
->r000 - rainfall(1 hour), 0.01 inches
->p000 - rainfall(24 hours), 0.01 inches
->h53 -  humidity as percentage
->b10020 - atmosphere,0.1 hpa
+```c000s000g000t086r000p000h53b10020
+c000 - air direction, degree
+s000 - air speed(1 minute), 0.1 miles per hour
+g000 - air speed(5 minutes), 0.1 miles per hour
+t086 - temperature, Fahrenheit
+r000 - rainfall(1 hour), 0.01 inches
+p000 - rainfall(24 hours), 0.01 inches
+h53 -  humidity as percentage
+b10020 - atmosphere,0.1 hpa```
   
   
  
