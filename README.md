@@ -7,7 +7,7 @@ that does Serial comms between a RaspberryPi 3 and the DFRobot Anenometer/Weathe
 
  ``c000s000g000t086r000p000h53b10020`` - that is output when comms are established
  
- ``It outputs 37 bytes per second, including the end CR/LF. Data Parser:
+```It outputs 37 bytes per second, including the end CR/LF. Data Parser:
  c000s000g000t086r000p000h53b10020
 c000
 s000
@@ -16,7 +16,13 @@ t086
 r000
 p000
 h53
-b10020 atmosphere,0.1 hpa``
+b10020 atmosphere,0.1 hpa
+air direction, degree
+air speed(1 minute), 0.1 miles per hour air speed(5 minutes), 0.1 miles per hour
+   temperature, Fahrenheit rainfall(1 hour), 0.01 inches
+  rainfall(24 hours), 0.01 inches humidity,% (00 = 100)```
+  
+  
  
  I copied the mathematic forumlas from the [DFRobot Arduino Sketch](https://www.dfrobot.com/wiki/index.php/Weather_Station_with_Anemometer/Wind_vane/Rain_bucket_SKU:SEN0186) To help me figure out wind speed,etc and broke them up for Python on the Pi. 
  
