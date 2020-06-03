@@ -7,6 +7,8 @@ that does Serial comms between a RaspberryPi 3 and the DFRobot Anenometer/Weathe
 
  ``c000s000g000t086r000p000h53b10020`` - that is output when comms are established
  
+ I copied the mathematic forumlas from the DFRobot Arduino Sketch and broke them up for Python on the Pi. Its not very elegant and needs improvement but it does work!
+ 
  
 
 
