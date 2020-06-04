@@ -62,4 +62,14 @@ while 1:
 	my_barometric_decode = (data.decode('utf-8')[28:-5])
 	my_float_barometric = float(my_barometric_decode)
 	my_barometric_total = (my_float_barometric / 10.00)
-	print ("Barometric Pressure:" + '%.2f' % my_barometric_total + "hPa")
+	print ("Barometric Pressure:" + '%.2f' % my_barometric_total + "hPa")	
+
+	print ("<HTML><BR><BR><CENTER><H1>My WeatherStation<BODY BGCOLOR=#66ffff><TABLE BORDER=1 BGCOLOR=Blue><TH BGCOLOR=White>Wind Direction:<TD BGCOLOR=Yellow>" + '%.2d' % my_ad + " Degrees</TD></TH><TR>", file=open('/var/www/html/data.html', 'w'))
+	print ("<TH BGCOLOR=White>Average Wind Speed(1min):<TD BGCOLOR=Yellow>" + '%.2f' % my_as1_initial + "m/s</TD></TH><TR>", file=open('/var/www/html/data.html', 'a'))
+	print ("<TH BGCOLOR=White>Max Wind Speed(5min):<TD BGCOLOR=Yellow>" + '%.2f' % my_as2_initial + "m/s</TD></TH><TR>", file=open('/var/www/html/data.html', 'a'))
+	print ("<TH BGCOLOR=White>Temperature:<TD BGCOLOR=Yellow>" + '%.2f' % my_temp_9 + " Celcius</TD></TH><TR>", file=open('/var/www/html/data.html', 'a')) 
+	print ("<TH BGCOLOR=White>Rainfall(1hr):<TD BGCOLOR=Yellow>" + '%.2f' % my_rf1h_next + "mm</TD></TH><TR>", file=open('/var/www/html/data.html', 'a')) 
+	print ("<TH BGCOLOR=White>Rainfall(24hr):<TD BGCOLOR=Yellow>" + '%.2f' % my_rf24h_next + "mm</TD></TH><TR>", file=open('/var/www/html/data.html', 'a'))
+	print ("<TH BGCOLOR=White>Humidity:<TD BGCOLOR=Yellow>" + '%.2d' % my_humidity + "%</TD></TH><TR>", file=open('/var/www/html/data.html', 'a')) 
+	print ("<TH BGCOLOR=White>Barometric Pressure:<TD BGCOLOR=Yellow>" + '%.2f' % my_barometric_total + "hPa</TD></TH><TR></TABLE>",  file=open('/var/www/html/data.html', 'a'))
+	break
