@@ -28,6 +28,8 @@ b10020 - atmosphere,0.1 hpa
  
  Its not very elegant and needs improvement but it does work!
  
+Added in some file writes to /var/www/html so that I could just run up Apache to take a look at the stats. Also personally added a cronjob that runs every 2 mins at present, and introduced a break in the Python code to stop SD card buring out so early.
+
  
  
 
