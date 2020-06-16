@@ -1,6 +1,13 @@
 #!/usr/bin/env python
+
+import http.server
+import socketserver
+import os
+
 import time
 import serial
+
+
 
 ser = serial.Serial(
         port='/dev/ttyS0',
@@ -24,6 +31,32 @@ while 1:
 	my_int_ad = int(my_ad_decode)
 	my_ad = (my_int_ad)
 	print ("Wind Direction:" + '%.2d' % my_ad + " Degrees")
+	if my_ad  == 0: 
+		my_dir_ad = "North"
+		print (my_dir_ad)
+	elif my_ad == 45:
+		my_dir_ad = "North East"
+		print (my_dir_ad)
+	elif my_ad == 90:
+		my_dir_ad = "East"
+		print (my_dir_ad)
+	elif my_ad == 135:
+		my_dir_ad = "South East"
+		print (my_dir_ad)
+	elif my_ad == 180:
+		my_dir_ad = "South"
+		print (my_dir_ad)
+	elif my_ad == 225:
+		my_dir_ad = "South West"
+		print (my_dir_ad)
+	elif my_ad == 270:
+		my_dir_ad = "West"
+		print (my_dir_ad)
+	elif my_ad == 315:
+		my_dir_ad = "North West"
+		print (my_dir_ad) 
+	else:
+		print ("Something else happened")
 	##AirSpeedAvg1###
 	my_as1_decode = (data.decode('utf-8')[5:-30])
 	my_float_as1 = float(my_as1_decode)
@@ -64,7 +97,7 @@ while 1:
 	my_barometric_total = (my_float_barometric / 10.00)
 	print ("Barometric Pressure:" + '%.2f' % my_barometric_total + "hPa")	
 
-	print ("<HTML><BR><BR><CENTER><H1>My WeatherStation<BODY BGCOLOR=#66ffff><TABLE BORDER=1 BGCOLOR=Blue><TH BGCOLOR=White>Wind Direction:<TD BGCOLOR=Yellow>" + '%.2d' % my_ad + " Degrees</TD></TH><TR>", file=open('/var/www/html/data.html', 'w'))
+	print ("<HTML><BR><BR><CENTER><H1>Matts WeatherStation<BODY BGCOLOR=#66ffff><TABLE BORDER=1 BGCOLOR=Blue><TH BGCOLOR=White>Wind Direction:<TD BGCOLOR=Yellow>" +  my_dir_ad + "</TD></TH><TR>", file=open('/var/www/html/data.html', 'w'))
 	print ("<TH BGCOLOR=White>Average Wind Speed(1min):<TD BGCOLOR=Yellow>" + '%.2f' % my_as1_initial + "m/s</TD></TH><TR>", file=open('/var/www/html/data.html', 'a'))
 	print ("<TH BGCOLOR=White>Max Wind Speed(5min):<TD BGCOLOR=Yellow>" + '%.2f' % my_as2_initial + "m/s</TD></TH><TR>", file=open('/var/www/html/data.html', 'a'))
 	print ("<TH BGCOLOR=White>Temperature:<TD BGCOLOR=Yellow>" + '%.2f' % my_temp_9 + " Celcius</TD></TH><TR>", file=open('/var/www/html/data.html', 'a')) 
